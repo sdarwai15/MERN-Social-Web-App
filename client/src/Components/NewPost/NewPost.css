@@ -1,0 +1,92 @@
+.newPost {
+	height: 100vh;
+	width: 100vw;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2vmax;
+	box-sizing: border-box;
+	background-image: url("../../../public/bg.jpg");
+	background-position: center;
+	background-size: cover;
+}
+
+.newPostForm {
+	min-height: 33vmax;
+	width: 30%;
+	padding: 2vmax;
+	margin-top: 1vmax;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #fff;
+	background-size: cover;
+	border-radius: 15px;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.156);
+	box-sizing: border-box;
+}
+
+.newPostForm > img {
+	width: 100%;
+	object-fit: cover;
+}
+.newPostForm > h4 {
+	margin: 1vmax;
+	font-family: "Product Sans";
+}
+
+.newPostForm > div > input[type="text"] {
+	width: 100%;
+	padding: 1vmax;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	margin: 0.5vmax 0;
+	font: 100 1.2rem "IBM Plex Sans", sans-serif;
+}
+
+.newPostForm > div > input[type="file"] {
+	/* background-color: aqua; */
+	width: 100%;
+	border-radius: 5px;
+	margin: 0.5vmax 0;
+	transition: all 0.4s ease-in-out;
+}
+
+.newPostForm > div > input[type="file"]::-webkit-file-upload-button {
+	width: 100%;
+	height: 40px;
+	border: 0;
+	background: #115dfc;
+	border-radius: 7px;
+	outline: none;
+	color: #ffffff;
+	cursor: pointer;
+	margin-top: 2vmax;
+}
+
+.postUploaded{
+	position: absolute;
+	bottom: 12%;
+}
+
+@media screen and (max-width: 600px) {
+	.newPostForm {
+		width: 100%;
+	}
+
+	.newPostForm > div > input {
+		padding: 4vw 8vw;
+		margin: 2vmax;
+		font: 100 1.2rem "IBM Plex Sans", sans-serif;
+		margin: 4vw;
+	}
+	.newPostForm > div > input[type="file"] {
+		width: 100%;
+	}
+
+	.newPostForm > div > input[type="file"]::-webkit-file-upload-button {
+		width: 70%;
+	}
+}

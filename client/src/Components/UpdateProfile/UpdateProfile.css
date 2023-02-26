@@ -1,0 +1,83 @@
+.updateProfile {
+	height: 100vh;
+	background-color:white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1vmax 0.5vmax;
+	box-sizing: border-box;
+}
+
+.updateProfileForm {
+    background-image: url("../../../public/bg.jpg");
+	background-position: center;
+	background-size: cover;
+	width: 30%;
+	max-height: 100vh;
+	border-radius: 15px;
+	box-sizing: border-box;
+	padding: 1vmax 0.5vmax;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.updateProfileInputs {
+	box-sizing: border-box;
+	padding: .7vmax 1.2vmax;
+	width: 80%;
+	border-radius: 10px;
+	border: 1px solid rgba(204, 204, 204, 0.3);
+	margin: 0.6vmax;
+	font: 100 1.2rem "IBM Plex Sans", sans-serif;
+	outline: none;
+	transition: all 0.4s ease-in-out;
+}
+
+.updateProfileInputs:focus {
+	box-shadow: 0 5px 10px rgba(145, 92, 182, 0.197);
+}
+
+.updateProfileForm > input[type="file"] {
+	border-radius: 10px;
+	margin: 1.6vmax;
+	transition: all 0.4s ease-in-out;
+}
+
+.updateProfileForm > input[type="file"]::-webkit-file-upload-button {
+	cursor: pointer;
+	background-color: rgb(63, 86, 189);
+	color: white;
+	width: 100%;
+	height: 4vmax;
+	padding: 1vmax;
+	border-radius: 10px;
+	border: none;
+	font: 100 1.2rem "IBM Plex Sans", sans-serif;
+}
+
+.updateProfileForm > input[type="file"]:hover {
+	font-weight: 500;
+	box-shadow: 0 5px 15px rgba(145, 92, 182, 0.425);
+}
+
+@media screen and (max-width: 600px) {
+	.updateProfileForm {
+		width: 100%;
+	}
+
+	.updateProfileForm > input {
+		padding: 4vw 8vw;
+		margin: 2vmax;
+		font: 100 1.2rem "IBM Plex Sans", sans-serif;
+		margin: 4vw;
+	}
+
+	.updateProfileForm > input[type="file"] {
+		width: 100%;
+	}
+
+	.updateProfileForm > input[type="file"]::-webkit-file-upload-button {
+		width: 70%;
+	}
+}

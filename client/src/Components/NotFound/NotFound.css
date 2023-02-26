@@ -1,0 +1,28 @@
+.not-found {
+    position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	min-height: 99.5vh;
+	max-height: 100vh;
+	padding: 4vmax 7vmax;
+}
+
+.gif {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 60vh;
+	overflow: hidden;
+}
+
+.gif > img {
+	height: 150%;
+}
+
+.bottom{
+    text-align: center;
+    margin-top: -75px;
+}
