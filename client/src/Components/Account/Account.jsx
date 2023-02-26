@@ -76,7 +76,7 @@ const Account = () => {
 			</div>
 			<div className="accountright">
 				<Avatar
-					src={user.avatar.url}
+					src={user?.avatar?.url}
 					alt="avatar"
 					style={{
 						height: "8vmax",
@@ -107,14 +107,14 @@ const Account = () => {
 						variant="outlined"
 						onClick={() => setFollowersToggle(!followersToggle)}
 					>
-						<Typography>{user.followers.length} Followers</Typography>
+						<Typography>{user?.followers?.length} Followers</Typography>
 					</Button>
 
 					<Button
 						variant="outlined"
 						onClick={() => setFollowingToggle(!followingToggle)}
 					>
-						<Typography>{user.followings.length} Followings</Typography>
+						<Typography>{user?.followings?.length} Followings</Typography>
 					</Button>
 				</div>
 
@@ -149,8 +149,8 @@ const Account = () => {
 					<div className="DialogBox">
 						<Typography variant="h4">Followers</Typography>
 
-						{user && user.followers.length > 0 ? (
-							user.followers.map((follower) => (
+						{user && user?.followers?.length > 0 ? (
+							user?.followers?.map((follower) => (
 								<User
 									key={follower._id}
 									userId={follower._id}
@@ -173,8 +173,8 @@ const Account = () => {
 					<div className="DialogBox">
 						<Typography variant="h4">Following</Typography>
 
-						{user && user.followings.length > 0 ? (
-							user.followings.map((follow) => (
+						{user && user?.followings?.length > 0 ? (
+							user?.followings?.map((follow) => (
 								<User
 									key={follow._id}
 									userId={follow._id}

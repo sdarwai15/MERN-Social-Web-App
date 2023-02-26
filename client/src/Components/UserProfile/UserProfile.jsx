@@ -84,15 +84,15 @@ const UserProfile = () => {
 				{posts && posts.length > 0 ? (
 					posts.map((post) => (
 						<Post
-							key={post._id}
-							postId={post._id}
-							caption={post.caption}
-							postImage={post.image.url}
-							likes={post.likes}
-							comments={post.comments}
-							avatar={post.author.avatar.url}
-							name={post.author.name}
-							userId={post.author._id}
+							key={post?._id}
+							postId={post?._id}
+							caption={post?.caption}
+							postImage={post?.image?.url}
+							likes={post?.likes}
+							comments={post?.comments}
+							avatar={post?.author?.avatar?.url}
+							name={post?.author?.name}
+							userId={post?.author?._id}
 							isUserProfile={true}
 						/>
 					))
@@ -104,12 +104,12 @@ const UserProfile = () => {
 				{user && (
 					<>
 						<Avatar
-							src={user.avatar.url}
+							src={user?.avatar?.url}
 							sx={{ height: "8vmax", width: "8vmax" }}
 						/>
 
 						<Typography variant="h5" style={{ marginTop: "-3px" }}>
-							{user.name}
+							{user?.name}
 						</Typography>
 
 						<div
@@ -123,14 +123,14 @@ const UserProfile = () => {
 								variant="outlined"
 								onClick={() => setFollowersToggle(!followersToggle)}
 							>
-								<Typography>{user.followers?.length} Followers</Typography>
+								<Typography>{user?.followers?.length} Followers</Typography>
 							</Button>
 
 							<Button
 								variant="outlined"
 								onClick={() => setFollowingToggle(!followingToggle)}
 							>
-								<Typography>{user.followings?.length} Followings</Typography>
+								<Typography>{user?.followings?.length} Followings</Typography>
 							</Button>
 						</div>
 
@@ -153,13 +153,13 @@ const UserProfile = () => {
 					<div className="DialogBox">
 						<Typography variant="h4">Followers</Typography>
 
-						{user && user.followers.length > 0 ? (
-							user.followers.map((follower) => (
+						{user && user?.followers?.length > 0 ? (
+							user?.followers?.map((follower) => (
 								<User
-									key={follower._id}
-									userId={follower._id}
-									name={follower.name}
-									avatar={follower.avatar.url}
+									key={follower?._id}
+									userId={follower?._id}
+									name={follower?.name}
+									avatar={follower?.avatar?.url}
 								/>
 							))
 						) : (
@@ -177,13 +177,13 @@ const UserProfile = () => {
 					<div className="DialogBox">
 						<Typography variant="h4">Following</Typography>
 
-						{user && user.followings.length > 0 ? (
-							user.followings.map((follow) => (
+						{user && user?.followings?.length > 0 ? (
+							user?.followings?.map((follow) => (
 								<User
-									key={follow._id}
-									userId={follow._id}
-									name={follow.name}
-									avatar={follow.avatar.url}
+									key={follow?._id}
+									userId={follow?._id}
+									name={follow?.name}
+									avatar={follow?.avatar?.url}
 								/>
 							))
 						) : (

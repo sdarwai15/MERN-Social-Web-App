@@ -52,7 +52,7 @@ const Home = () => {
 					</div>
 				)}
 				<div className="homeright">
-					<User userId={me._id} name={me.username} avatar={me.avatar?.url} />
+					<User userId={me?._id} name={me?.username} avatar={me?.avatar?.url} />
 					<div
 						style={{
 							width: "100%",

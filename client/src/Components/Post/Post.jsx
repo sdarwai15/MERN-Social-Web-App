@@ -151,10 +151,10 @@ const Post = ({
 							? likes.map((elem) => {
 									return (
 										<User
-											key={elem._id}
-											userId={elem._id}
-											name={elem.name}
-											avatar={elem.avatar.url}
+											key={elem?._id}
+											userId={elem?._id}
+											name={elem?.name}
+											avatar={elem?.avatar?.url}
 										/>
 									);
 							  })
@@ -186,12 +186,12 @@ const Post = ({
 						{comments.length > 0 ? (
 							comments.map((item) => (
 								<CommentCard
-									userId={item.user._id}
-									name={item.user.name}
-									avatar={item.user.avatar.url}
-									comment={item.comment}
-									commentId={item._id}
-									key={item._id}
+									userId={item?.user?._id}
+									name={item?.user?.name}
+									avatar={item?.user?.avatar?.url}
+									comment={item?.comment}
+									commentId={item?._id}
+									key={item?._id}
 									postId={postId}
 									isAccount={isAccount}
 								/>
