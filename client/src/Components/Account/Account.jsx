@@ -87,7 +87,7 @@ const Account = () => {
 					}}
 				/>
 
-				<Typography variant="h5">{user.name}</Typography>
+				<Typography variant="h5">{user?.name}</Typography>
 
 				<Link
 					to={"/users/update/profile"}
@@ -152,10 +152,10 @@ const Account = () => {
 						{user && user?.followers?.length > 0 ? (
 							user?.followers?.map((follower) => (
 								<User
-									key={follower._id}
-									userId={follower._id}
-									name={follower.name}
-									avatar={follower.avatar?.url}
+									key={follower?._id}
+									userId={follower?._id}
+									name={follower?.name}
+									avatar={follower?.avatar?.url}
 								/>
 							))
 						) : (
@@ -176,10 +176,10 @@ const Account = () => {
 						{user && user?.followings?.length > 0 ? (
 							user?.followings?.map((follow) => (
 								<User
-									key={follow._id}
-									userId={follow._id}
-									name={follow.name}
-									avatar={follow.avatar?.url}
+									key={follow?._id}
+									userId={follow?._id}
+									name={follow?.name}
+									avatar={follow?.avatar?.url}
 								/>
 							))
 						) : (
