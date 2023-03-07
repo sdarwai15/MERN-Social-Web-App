@@ -34,15 +34,15 @@ const Home = () => {
 							posts.map((post) => {
 								return (
 									<Post
-										key={post?._id}
-										userId={post?.author?._id}
-										name={post?.author?.username}
-										avatar={post?.author?.avatar?.url}
-										postId={post?._id}
-										caption={post?.caption}
-										postImage={post?.image?.url}
-										likes={post?.likes || []}
-										comments={post?.comments || []}
+										key={post._id}
+										userId={post.author._id}
+										name={post.author.username}
+										avatar={post.author.avatar.url}
+										postId={post._id}
+										caption={post.caption}
+										postImage={post.image.url}
+										likes={post.likes || []}
+										comments={post.comments || []}
 									/>
 								);
 							})
@@ -52,7 +52,7 @@ const Home = () => {
 					</div>
 				)}
 				<div className="homeright">
-					<User userId={me?._id} name={me?.username} avatar={me?.avatar?.url} />
+					<User userId={me._id} name={me.username} avatar={me.avatar.url} />
 					<div
 						style={{
 							width: "100%",
@@ -76,13 +76,13 @@ const Home = () => {
 					)}
 					{users && users.length > 0 ? (
 						users.map((user) => {
-							if (user?._id !== me?._id) {
+							if (user._id !== me._id) {
 								return (
 									<User
-										key={user?._id}
-										userId={user?._id}
-										name={user?.username}
-										avatar={user?.avatar?.url}
+										key={user._id}
+										userId={user._id}
+										name={user.username}
+										avatar={user.avatar.url}
 									/>
 								);
 							}

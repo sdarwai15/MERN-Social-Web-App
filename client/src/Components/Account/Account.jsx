@@ -41,15 +41,15 @@ const Account = () => {
 					posts.map((post) => {
 						return (
 							<Post
-								key={post?._id}
-								userId={post?.author?._id}
-								name={post?.author?.username}
-								avatar={post?.author?.avatar?.url}
-								postId={post?._id}
-								caption={post?.caption}
-								postImage={post?.image?.url}
-								likes={post?.likes || []}
-								comments={post?.comments || []}
+								key={post._id}
+								userId={post.author._id}
+								name={post.author.username}
+								avatar={post.author.avatar.url}
+								postId={post._id}
+								caption={post.caption}
+								postImage={post.image.url}
+								likes={post.likes || []}
+								comments={post.comments || []}
 								isAccount={true}
 								isDelete={true}
 							/>
@@ -69,14 +69,14 @@ const Account = () => {
 					>
 						<Button style={{ textAlign: "center" }}>
 							No post yet
-							<br /> wanna create some ?
+							<br /> wanna create some
 						</Button>
 					</Link>
 				)}
 			</div>
 			<div className="accountright">
 				<Avatar
-					src={user?.avatar?.url}
+					src={user.avatar.url}
 					alt="avatar"
 					style={{
 						height: "8vmax",
@@ -87,7 +87,7 @@ const Account = () => {
 					}}
 				/>
 
-				<Typography variant="h5">{user?.name}</Typography>
+				<Typography variant="h5">{user.name}</Typography>
 
 				<Link
 					to={"/users/update/profile"}
@@ -107,14 +107,14 @@ const Account = () => {
 						variant="outlined"
 						onClick={() => setFollowersToggle(!followersToggle)}
 					>
-						<Typography>{user?.followers?.length} Followers</Typography>
+						<Typography>{user.followers.length} Followers</Typography>
 					</Button>
 
 					<Button
 						variant="outlined"
 						onClick={() => setFollowingToggle(!followingToggle)}
 					>
-						<Typography>{user?.followings?.length} Followings</Typography>
+						<Typography>{user.followings.length} Followings</Typography>
 					</Button>
 				</div>
 
@@ -149,13 +149,13 @@ const Account = () => {
 					<div className="DialogBox">
 						<Typography variant="h4">Followers</Typography>
 
-						{user && user?.followers?.length > 0 ? (
-							user?.followers?.map((follower) => (
+						{user && user.followers.length > 0 ? (
+							user.followers.map((follower) => (
 								<User
-									key={follower?._id}
-									userId={follower?._id}
-									name={follower?.name}
-									avatar={follower?.avatar?.url}
+									key={follower._id}
+									userId={follower._id}
+									name={follower.name}
+									avatar={follower.avatar.url}
 								/>
 							))
 						) : (
@@ -173,13 +173,13 @@ const Account = () => {
 					<div className="DialogBox">
 						<Typography variant="h4">Following</Typography>
 
-						{user && user?.followings?.length > 0 ? (
-							user?.followings?.map((follow) => (
+						{user && user.followings.length > 0 ? (
+							user.followings.map((follow) => (
 								<User
-									key={follow?._id}
-									userId={follow?._id}
-									name={follow?.name}
-									avatar={follow?.avatar?.url}
+									key={follow._id}
+									userId={follow._id}
+									name={follow.name}
+									avatar={follow.avatar.url}
 								/>
 							))
 						) : (
