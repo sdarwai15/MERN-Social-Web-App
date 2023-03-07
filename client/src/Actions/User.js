@@ -17,12 +17,18 @@ export const registerUser =
 				}
 			);
 
-			// if the request is successful, we dispatch the action to set the user data
-			// console.log(data.foundUser);
-			dispatch({
-				type: "RegisterSuccess",
-				payload: data.foundUser,
-			});
+			if (!data) {
+				dispatch({
+					type: "RegisterFailure",
+					payload: "No data found",
+				});
+			} else {
+				// if the request is successful, we dispatch the action to set the user data
+				dispatch({
+					type: "RegisterSuccess",
+					payload: data.foundUser,
+				});
+			}
 		} catch (error) {
 			// if the request is not successful, we dispatch the action to set the error message
 			dispatch({
@@ -48,12 +54,18 @@ export const loginUser = (email, password) => async (dispatch) => {
 			}
 		);
 
-		// if the request is successful, we dispatch the action to set the user data
-		// console.log(data.foundUser);
-		dispatch({
-			type: "LoginSuccess",
-			payload: data.foundUser,
-		});
+		if (!data) {
+			dispatch({
+				type: "LoginFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "LoginSuccess",
+				payload: data.foundUser,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -71,11 +83,19 @@ export const loadUser = () => async (dispatch) => {
 		// sending the request to the server
 		const { data } = await axios.get("/users/me");
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "LoadUserSuccess",
-			payload: data.user,
-		});
+		//if data is null, then dispatch LoadUserFailure
+		if (!data) {
+			dispatch({
+				type: "LoadUserFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "LoadUserSuccess",
+				payload: data.user,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -93,11 +113,18 @@ export const getPostsOfFollowing = () => async (dispatch) => {
 		// sending the request to the server
 		const { data } = await axios.get("/posts");
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "postsOfFollowingSuccess",
-			payload: data.posts,
-		});
+		if (!data) {
+			dispatch({
+				type: "postsOfFollowingFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "postsOfFollowingSuccess",
+				payload: data.posts,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -117,11 +144,18 @@ export const getAllUsers =
 			// sending the request to the server
 			const { data } = await axios.get(`/users?name=${name}`);
 
-			// if the request is successful, we dispatch the action to set the user data
-			dispatch({
-				type: "allUsersSuccess",
-				payload: data.users,
-			});
+			if (!data) {
+				dispatch({
+					type: "allUsersFailure",
+					payload: "No data found",
+				});
+			} else {
+				// if the request is successful, we dispatch the action to set the user data
+				dispatch({
+					type: "allUsersSuccess",
+					payload: data.users,
+				});
+			}
 		} catch (error) {
 			// if the request is not successful, we dispatch the action to set the error message
 			dispatch({
@@ -139,11 +173,18 @@ export const getMyPosts = () => async (dispatch) => {
 		// sending the request to the server
 		const { data } = await axios.get("/users/me/posts");
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "myPostSuccess",
-			payload: data.posts,
-		});
+		if (!data) {
+			dispatch({
+				type: "myPostFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "myPostSuccess",
+				payload: data.posts,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -184,11 +225,18 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
 			avatar,
 		});
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "updateProfileSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "updateProfileFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "updateProfileSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -210,11 +258,18 @@ export const updatePassword =
 				newPassword,
 			});
 
-			// if the request is successful, we dispatch the action to set the user data
-			dispatch({
-				type: "updatePasswordSuccess",
-				payload: data.message,
-			});
+			if (!data) {
+				dispatch({
+					type: "updatePasswordFailure",
+					payload: "No data found",
+				});
+			} else {
+				// if the request is successful, we dispatch the action to set the user data
+				dispatch({
+					type: "updatePasswordSuccess",
+					payload: data.message,
+				});
+			}
 		} catch (error) {
 			// if the request is not successful, we dispatch the action to set the error message
 			dispatch({
@@ -232,11 +287,18 @@ export const deleteAccount = () => async (dispatch) => {
 		// sending the request to the server
 		const { data } = await axios.delete("/users/delete/me");
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "deleteAccountSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "deleteAccountFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "deleteAccountSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -264,11 +326,18 @@ export const forgotPassword = (email) => async (dispatch) => {
 			}
 		);
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "forgotPasswordSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "forgotPasswordFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "forgotPasswordSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -296,11 +365,18 @@ export const resetPassword = (token, password) => async (dispatch) => {
 			}
 		);
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "resetPasswordSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "resetPasswordFailure",
+				payload: "No data found",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "resetPasswordSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -317,10 +393,18 @@ export const getUserPosts = (id) => async (dispatch) => {
 		});
 
 		const { data } = await axios.get(`/users/${id}/posts`);
-		dispatch({
-			type: "userPostSuccess",
-			payload: data.posts,
-		});
+
+		if (!data) {
+			dispatch({
+				type: "userPostFailure",
+				payload: "No data found",
+			});
+		} else {
+			dispatch({
+				type: "userPostSuccess",
+				payload: data.posts,
+			});
+		}
 	} catch (error) {
 		dispatch({
 			type: "userPostFailure",
@@ -336,10 +420,18 @@ export const getUserProfile = (id) => async (dispatch) => {
 		});
 
 		const { data } = await axios.get(`/users/profile/${id}`);
-		dispatch({
-			type: "userProfileSuccess",
-			payload: data.user,
-		});
+
+		if (!data) {
+			dispatch({
+				type: "userProfileFailure",
+				payload: "No data found",
+			});
+		} else {
+			dispatch({
+				type: "userProfileSuccess",
+				payload: data.user,
+			});
+		}
 	} catch (error) {
 		dispatch({
 			type: "userProfileFailure",
@@ -355,10 +447,18 @@ export const followAndUnfollowUser = (id) => async (dispatch) => {
 		});
 
 		const { data } = await axios.get(`/users/follow/${id}`);
-		dispatch({
-			type: "followUserSuccess",
-			payload: data.message,
-		});
+
+		if (!data) {
+			dispatch({
+				type: "followUserFailure",
+				payload: "No data found",
+			});
+		} else {
+			dispatch({
+				type: "followUserSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		dispatch({
 			type: "followUserFailure",
