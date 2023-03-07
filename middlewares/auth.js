@@ -9,7 +9,7 @@ module.exports = {
 
 			if (!token) {
 				// if no token, return error
-				res.status(401).json({
+				return res.status(401).json({
 					description: "Authorization token is required in headers",
 					errors: [
 						{
@@ -19,8 +19,6 @@ module.exports = {
 						},
 					],
 				});
-				
-				return;
 			}
 
 			// verify token
@@ -32,6 +30,7 @@ module.exports = {
 				return next(ApiError.unauthorized("Please Login first"));
 			}
 			// if user found, set user to req.user
+			console.log(user);
 			req.user = user;
 			next();
 		} catch (error) {
