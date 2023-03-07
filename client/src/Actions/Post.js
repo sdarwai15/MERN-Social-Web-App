@@ -8,11 +8,18 @@ export const likePost = (id) => async (dispatch) => {
 		// sending the request to the server
 		const { data } = await axios.get(`/posts/${id}`);
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "likeSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "likeFailure",
+				payload: "Something went wrong",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "likeSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -40,11 +47,18 @@ export const addCommentOnPost = (id, comment) => async (dispatch) => {
 			}
 		);
 
-		// if the request is successful, we dispatch the action to set the user data
-		dispatch({
-			type: "addUpdateCommentSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "addUpdateCommentFailure",
+				payload: "Something went wrong",
+			});
+		} else {
+			// if the request is successful, we dispatch the action to set the user data
+			dispatch({
+				type: "addUpdateCommentSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		// if the request is not successful, we dispatch the action to set the error message
 		dispatch({
@@ -63,10 +77,18 @@ export const deleteCommentOnPost = (id, commentId) => async (dispatch) => {
 		const { data } = await axios.delete(`/posts/${id}/comment`, {
 			data: { commentId },
 		});
-		dispatch({
-			type: "deleteCommentSuccess",
-			payload: data.message,
-		});
+
+		if (!data) {
+			dispatch({
+				type: "deleteCommentFailure",
+				payload: "Something went wrong",
+			});
+		} else {
+			dispatch({
+				type: "deleteCommentSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		dispatch({
 			type: "deleteCommentFailure",
@@ -92,10 +114,17 @@ export const newPost = (caption, image) => async (dispatch) => {
 			}
 		);
 
-		dispatch({
-			type: "newPostSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "newPostFailure",
+				payload: "Something went wrong",
+			});
+		} else {
+			dispatch({
+				type: "newPostSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		dispatch({
 			type: "newPostFailure",
@@ -120,10 +149,17 @@ export const updatePost = (caption, id) => async (dispatch) => {
 			}
 		);
 
-		dispatch({
-			type: "updateCaptionSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "updateCaptionFailure",
+				payload: "Something went wrong",
+			});
+		} else {
+			dispatch({
+				type: "updateCaptionSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		dispatch({
 			type: "updateCaptionFailure",
@@ -138,10 +174,17 @@ export const deletePost = (id) => async (dispatch) => {
 
 		const { data } = await axios.delete(`/posts/${id}`);
 
-		dispatch({
-			type: "deletePostSuccess",
-			payload: data.message,
-		});
+		if (!data) {
+			dispatch({
+				type: "deletePostFailure",
+				payload: "Something went wrong",
+			});
+		} else {
+			dispatch({
+				type: "deletePostSuccess",
+				payload: data.message,
+			});
+		}
 	} catch (error) {
 		dispatch({
 			type: "deletePostFailure",
