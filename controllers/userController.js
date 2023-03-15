@@ -378,13 +378,14 @@ module.exports = {
 				return next(ApiError.notFound("User not found"));
 			} else {
 				// send response
+
 				return res.status(200).json({
 					success: true,
 					user: foundUser,
 				});
 			}
 		} catch (error) {
-			next(error);
+			return next(error);
 		}
 	},
 

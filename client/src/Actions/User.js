@@ -84,12 +84,12 @@ export const loadUser = () => async (dispatch) => {
 		const { data } = await axios.get("/users/me");
 
 		//if data is null, then dispatch LoadUserFailure
-		if (!data) {
+		if (!data.user._id) {
 			dispatch({
 				type: "LoadUserFailure",
 				payload: "No data found",
 			});
-		} else {
+		} else if (data.user._id) {
 			// if the request is successful, we dispatch the action to set the user data
 			dispatch({
 				type: "LoadUserSuccess",
