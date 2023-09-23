@@ -35,7 +35,6 @@ const Post = ({
 	postImage,
 	likes = [],
 	comments = [],
-	isDelete = false,
 	isAccount = false,
 	isUserProfile = false,
 }) => {
