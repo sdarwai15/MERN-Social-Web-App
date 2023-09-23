@@ -46,7 +46,7 @@ const UpdatePassword = () => {
 					className="input_container"
 					style={{ width: "90%", marginTop: "3vmax" }}
 				>
-					<label className="input_label" for="password_field">
+					<label className="input_label" htmlFor="password_field">
 						Old Password
 					</label>
 					<svg
@@ -88,7 +88,7 @@ const UpdatePassword = () => {
 				</div>
 
 				<div className="input_container" style={{ width: "90%" }}>
-					<label className="input_label" for="password_field">
+					<label className="input_label" htmlFor="password_field">
 						New Password
 					</label>
 					<svg

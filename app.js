@@ -5,7 +5,7 @@ const path = require("path");
 
 if (process.env.NODE_ENV !== "production") {
 	// if not in production, set dotenv to load .env file
-	require("dotenv").config({ path: "./config/.env" });
+	require("dotenv").config({ path: "config/.env" });
 }
 
 // Serve static assets if in production
@@ -30,7 +30,7 @@ const postRoutes = require("./routes/postRoutes");
 const userRoutes = require("./routes/userRoutes");
 
 //Using routes
-app.use("/posts", postRoutes);
-app.use("/users", userRoutes);
+app.use("https://social-web-app.onrender.com/posts", postRoutes);
+app.use("https://social-web-app.onrender.com/users", userRoutes);
 
 module.exports = app;

@@ -90,7 +90,6 @@ const Register = () => {
 						name="input-name"
 						type="text"
 						className="input_field"
-						id="email_field"
 					/>
 				</div>
 				<div className="input_container">
@@ -106,7 +105,6 @@ const Register = () => {
 						name="input-name"
 						type="text"
 						className="input_field"
-						id="email_field"
 					/>
 				</div>
 				<div className="input_container">
@@ -122,7 +120,6 @@ const Register = () => {
 						name="input-name"
 						type="email"
 						className="input_field"
-						id="email_field"
 					/>
 				</div>
 				<div className="input_container">
@@ -138,7 +135,6 @@ const Register = () => {
 						name="input-name"
 						type="password"
 						className="input_field"
-						id="password_field"
 					/>
 				</div>
 
