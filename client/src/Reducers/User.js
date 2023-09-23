@@ -43,6 +43,7 @@ export const userReducer = createReducer(initialState, {
 
 	LoadUserRequest: (state) => {
 		state.loading = true;
+		state.isAuthenticated = false;
 	},
 	LoadUserSuccess: (state, action) => {
 		state.loading = false;

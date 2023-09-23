@@ -5,11 +5,11 @@ const jwt = require("jsonwebtoken");
 module.exports = {
 	async isAuthenticated(req, res, next) {
 		try {
-			const token = req.cookies.token;
+			const { token } = req.cookies;
 
 			if (!token) {
 				// if no token, return error
-				res.status(401).json({
+				return res.status(401).json({
 					description: "Authorization token is required in headers",
 					errors: [
 						{
@@ -19,21 +19,22 @@ module.exports = {
 						},
 					],
 				});
-				
-				return;
-			}
+			} else {
+				// verify token
+				const decoded = jwt.verify(token, process.env.JWT_SECRET);
+				// if token is valid, find user by id in db
+				const user = await UserModel.findById(decoded._id);
 
-			// verify token
-			const decoded = jwt.verify(token, process.env.JWT_SECRET);
-			// if token is valid, find user by id in db
-			const user = await UserModel.findById(decoded._id);
-			if (!user) {
-				// if user not found, return error
-				return next(ApiError.unauthorized("Please Login first"));
+				if (!user) {
+					// if user not found, return error
+					return next(ApiError.unauthorized("Please Login first"));
+				} else {
+					// if user found, set user to req.user
+					// console.log(user);
+					req.user = user;
+					next();
+				}
 			}
-			// if user found, set user to req.user
-			req.user = user;
-			next();
 		} catch (error) {
 			// console.log(error);
 			next(error);
