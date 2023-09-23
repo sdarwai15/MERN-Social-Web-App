@@ -30,7 +30,7 @@ const postRoutes = require("./routes/postRoutes");
 const userRoutes = require("./routes/userRoutes");
 
 //Using routes
-app.use("https://social-web-app.onrender.com/posts", postRoutes);
-app.use("https://social-web-app.onrender.com/users", userRoutes);
+app.use("/posts", postRoutes);
+app.use("/users", userRoutes);
 
 module.exports = app;
