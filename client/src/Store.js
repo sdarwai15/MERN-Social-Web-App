@@ -37,6 +37,7 @@ const store = configureStore({
 		userPosts: userPostsReducer,
 		followUnfollow: followUserReducer,
 	},
+	devTools: false,
 });
 
 export default store;

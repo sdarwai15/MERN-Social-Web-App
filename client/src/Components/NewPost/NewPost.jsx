@@ -31,7 +31,7 @@ const NewPost = () => {
 		await dispatch(newPost(caption, image));
 		setPostUploaded(true);
 		dispatch(loadUser());
-		this.props.history.push("/");
+		this?.props.history.push("/");
 	};
 
 	useEffect(() => {
